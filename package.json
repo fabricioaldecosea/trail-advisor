@@ -1,0 +1,25 @@
+{
+    "name": "trailhead-leaderboard",
+    "version": "0.0.1",
+    "description": "A sample Node.js app on Heroku",
+    "engines": {
+        "node": "10.x"
+    },
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "dotenv": "^6.2.0",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "express-validator": "^5.3.1",
+        "moment": "^2.24.0",
+        "mongoose": "^5.4.16",
+        "node-horseman": "^3.3.0",
+        "pg": "^7.8.1",
+        "puppeteer": "^2.0.0",
+        "validator": "^10.11.0"
+    }
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/header.ejs %>
+    </head>
+    <body>
+        <div class="container">
+            <% include ../partials/navbar.ejs %>
+            <div class="row">
+                <div class="col-sm-12" style="padding-bottom:20px">
+                    <h1>Trailblazer Leaderboard</h1>
+                    <% include ../partials/addTrailblazer.ejs %>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-columns">
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Newest Trailblazers</h4>
+                            <ol>
+                            <% if(newestTrailblazers){ 
+                                newestTrailblazers.forEach(function(newestTrailblazer,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ? 'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= newestTrailblazer.trailblazerId %>"><%= newestTrailblazer.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= newestTrailblazer.created_at %></span> 
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Badge Leaders</h4>
+                            <ol>
+                            <% if(badgeLeaders){ 
+                                badgeLeaders.forEach(function(badgeLeader,index){ %>
+                                <li>
+                                <div class="row">
+                                    <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                        <a href="/trailblazer/details/<%= badgeLeader.trailblazerId %>"><%= badgeLeader.full_name %></a>
+                                    </div>
+                                    <div class="col-sm-6 text-right">
+                                        <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= badgeLeader.badgeCount %></span>
+                                    </div>
+                                    </div>
+                                </li>
+                            <% });}%>
+                            </ol>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Point Leaders</h4>
+                            <ol>
+                            <% if(pointLeaders){ 
+                                pointLeaders.forEach(function(pointLeader,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= pointLeader.trailblazerId %>"><%= pointLeader.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= pointLeader.points %></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+                        
+
+
+                        
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Developer 1 Cert Prep Leaders</h4>
+                            <ol>
+                            <% if(devOneCert){ 
+                                devOneCert.forEach(function(badgeThisMonth,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= badgeThisMonth.trailblazerId %>"><%= badgeThisMonth.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= badgeThisMonth.badges %></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Developer 2 Cert Prep Leaders</h4>
+                            <ol>
+                            <% if(devTwoCert){ 
+                                devTwoCert.forEach(function(badgeThisMonth,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= badgeThisMonth.trailblazerId %>"><%= badgeThisMonth.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= badgeThisMonth.badges %></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Admin Cert Prep Leaders</h4>
+                            <ol>
+                            <% if(adminCert){ 
+                                adminCert.forEach(function(item,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= item.trailblazerId %>"><%= item.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= item.badges %></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Advanced Admin Cert Prep Leaders</h4>
+                            <ol>
+                            <% if(advancedAdminCert){ 
+                                advancedAdminCert.forEach(function(item,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= item.trailblazerId %>"><%= item.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= item.badges %></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h4 class="card-title">Platform App Builder Cert Prep Leaders</h4>
+                            <ol>
+                            <% if(platformAppBuilderCert){ 
+                                platformAppBuilderCert.forEach(function(item,index){ %>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-sm-6 <%= (index == 0) ?  'font-weight-bold' : '' %>">
+                                            <a href="/trailblazer/details/<%= item.trailblazerId %>"><%= item.full_name %></a>
+                                        </div>
+                                        <div class="col-sm-6 text-right">
+                                            
+                                            <span class="badge <%= (index < 5) ? 'badge-primary' : 'badge-info' %>"><%= item.badges %></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% });} %>
+                            </ol>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Trailblazers by Badge</h1>
+                    <div class="card-columns">
+
+                    <% if(trailblazersByBadges){ 
+                        trailblazersByBadges.forEach(function(trailblazersByBadge,index){ %>
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="<%= trailblazersByBadge.path %>" target="_blank"><%= trailblazersByBadge._id %></a></h5>
+                                <p class="card-text">
+                                <% if(trailblazersByBadge.path){ 
+                                    trailblazersByBadge.trailblazers.forEach(function(trailblazer,index){ %>
+                                    <span class="badge badge-light"><a href="/trailblazer/details/<%= trailblazer.trailblazerId %>"><%= trailblazer.full_name %></a></span>
+
+                                <% });} %>
+                                </p>
+                            </div>
+                        </div>
+                    <% });} %>
+                    </div>
+                </div>
+            </div>
+            
+       </div>
+    </body>
+</html>
